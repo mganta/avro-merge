@@ -1,0 +1,49 @@
+{
+  "type" : "record",
+  "name" : "CombinedPWData",
+  "namespace" : "com.cloudera.services.hbase",
+  "fields" : [ {
+    "name" : "id",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "col1",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "utility_name",
+    "type" : [ "null", "string" ],
+    "doc" : "Type inferred from 'A & N Electric Coop'",
+    "default" : null
+  }, {
+    "name" : "state",
+    "type" : [ "null", "string" ],
+    "doc" : "Type inferred from 'MD'",
+    "default" : null
+  }, {
+    "name" : "service_type",
+    "type" : [ "null", "string" ],
+    "doc" : "Type inferred from 'Bundled'",
+    "default" : null
+  }, {
+    "name" : "ownership",
+    "type" : [ "null", "string" ],
+    "doc" : "Type inferred from 'Cooperative'",
+    "default" : null
+  }, {
+    "name" : "comm_rate",
+    "type" : [ "null", "string" ],
+    "doc" : "Type inferred from '0.1255'",
+    "default" : null
+  }, {
+    "name" : "ind_rate",
+    "type" : [ "null", "string" ],
+    "doc" : "Type inferred from '0'",
+    "default" : null
+  }, {
+    "name" : "res_rate",
+    "type" : [ "null", "string" ],
+    "doc" : "Type inferred from '0.120810564663'",
+    "default" : null
+  } ]
+}

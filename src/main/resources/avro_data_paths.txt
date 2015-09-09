@@ -1,0 +1,2 @@
+/user/hive/warehouse/pwdata/
+/user/hive/warehouse/nonpwdata/
