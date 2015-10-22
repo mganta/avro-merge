@@ -33,13 +33,9 @@ public class GenericAvroMapper
 			Gson gson = new Gson();
 			FieldMappings[] mappings = gson.fromJson(new FileReader(
 					mappingsFilename), FieldMappings[].class);
-			
-			System.out.println("mappings size " + mappings.length);
 
-			for (FieldMappings mapping : mappings) {
-				System.out.println("mappings column " + mapping.getSourceColumn());
+			for (FieldMappings mapping : mappings) 
 				fieldMappings.put(mapping.getSourceColumn(), mapping);
-			}
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -65,16 +61,13 @@ public class GenericAvroMapper
 			String fieldName = field.name();
 			Object fieldValue = avroRecord.get(fieldName);
 			if (fieldValue != null) {
-				System.out.println(fieldName + "-" + fieldValue);
 				if (fieldMappings.containsKey(fieldName)) {
-					System.out.println(fieldName + "--" + fieldValue);
 					if (fieldMappings.get(fieldName).getSourceTable().equalsIgnoreCase(schemaName)) {
 						combinedRecord.put(fieldMappings.get(fieldName).getTargetColumn(), fieldValue);
 					} else {
 						combinedRecord.put(fieldName, fieldValue);
 					}
 				} else {
-					System.out.println(fieldName + "----" + fieldValue);
 					if(combinedRecord.SCHEMA$.getField(fieldName) != null)	
 					   combinedRecord.put(fieldName, fieldValue);
 					else
