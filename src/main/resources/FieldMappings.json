@@ -1,0 +1,56 @@
+[
+   {
+      "sourceColumn" : "zip",
+      "sourceTable" : "NonPWData",
+      "targetColumn" : "id",
+      "targetTable" : "CombinedPWData"
+   },
+   {
+      "sourceColumn" : "eiaid",
+      "sourceTable" : "NonPWData",
+      "targetColumn" : "col1",
+      "targetTable" : "CombinedPWData"
+   },
+   {
+      "sourceColumn" : "cl2",
+      "sourceTable" : "PWData",
+      "targetColumn" : "utility_name",
+      "targetTable" : "CombinedPWData"
+   },
+   {
+      "sourceColumn" : "col3",
+      "sourceTable" : "PWData",
+      "targetColumn" : "state",
+      "targetTable" : "CombinedPWData"
+   },
+   {
+      "sourceColumn" : "col4",
+      "sourceTable" : "PWData",
+      "targetColumn" : "service_type",
+      "targetTable" : "CombinedPWData"
+   },
+   {
+      "sourceColumn" : "col5",
+      "sourceTable" : "PWData",
+      "targetColumn" : "ownership",
+      "targetTable" : "CombinedPWData"
+   },
+   {
+      "sourceColumn" : "col6",
+      "sourceTable" : "PWData",
+      "targetColumn" : "comm_rate",
+      "targetTable" : "CombinedPWData"
+   },
+   {
+      "sourceColumn" : "col7",
+      "sourceTable" : "PWData",
+      "targetColumn" : "ind_rate",
+      "targetTable" : "CombinedPWData"
+   },
+   {
+      "sourceColumn" : "col8",
+      "sourceTable" : "PWData",
+      "targetColumn" : "res_rate",
+      "targetTable" : "CombinedPWData"
+   }
+]

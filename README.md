@@ -5,5 +5,6 @@ To Run
 hadoop jar \
 avro-merge-0.0.1-SNAPSHOT-jar-with-dependencies.jar \
 com.cloudera.services.avro.MergeAvroData \
---files field_mappings.properties \
-avro_data_paths.txt field_mappings.properties /user/foo/merged_output
+--files FieldMappings.json \
+avro_data_paths.txt  /user/foo/merged_output
+

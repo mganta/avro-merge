@@ -1,7 +1,7 @@
 {
   "type" : "record",
   "name" : "CombinedPWData",
-  "namespace" : "com.cloudera.services.hbase",
+  "namespace" : "com.cloudera.services.avro",
   "fields" : [ {
     "name" : "id",
     "type" : [ "null", "string" ],
@@ -45,5 +45,9 @@
     "type" : [ "null", "string" ],
     "doc" : "Type inferred from '0.120810564663'",
     "default" : null
-  } ]
+  }, {
+     "name": "others", 
+     "type": { "type": "map", "values": ["null", "string"] }
+     }
+   ]
 }

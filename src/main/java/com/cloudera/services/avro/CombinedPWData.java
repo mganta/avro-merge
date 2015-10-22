@@ -3,11 +3,11 @@
  * 
  * DO NOT EDIT DIRECTLY
  */
-package com.cloudera.services.hbase;  
+package com.cloudera.services.avro;  
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CombinedPWData\",\"namespace\":\"com.cloudera.services.hbase\",\"fields\":[{\"name\":\"id\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"col1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"utility_name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from 'A & N Electric Coop'\",\"default\":null},{\"name\":\"state\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from 'MD'\",\"default\":null},{\"name\":\"service_type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from 'Bundled'\",\"default\":null},{\"name\":\"ownership\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from 'Cooperative'\",\"default\":null},{\"name\":\"comm_rate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from '0.1255'\",\"default\":null},{\"name\":\"ind_rate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from '0'\",\"default\":null},{\"name\":\"res_rate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from '0.120810564663'\",\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CombinedPWData\",\"namespace\":\"com.cloudera.services.avro\",\"fields\":[{\"name\":\"id\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"col1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"utility_name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from 'A & N Electric Coop'\",\"default\":null},{\"name\":\"state\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from 'MD'\",\"default\":null},{\"name\":\"service_type\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from 'Bundled'\",\"default\":null},{\"name\":\"ownership\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from 'Cooperative'\",\"default\":null},{\"name\":\"comm_rate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from '0.1255'\",\"default\":null},{\"name\":\"ind_rate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from '0'\",\"default\":null},{\"name\":\"res_rate\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"Type inferred from '0.120810564663'\",\"default\":null},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
    private java.lang.String id;
    private java.lang.String col1;
@@ -25,6 +25,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
    private java.lang.String ind_rate;
   /** Type inferred from '0.120810564663' */
    private java.lang.String res_rate;
+   private java.util.Map<java.lang.String,java.lang.String> others;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -36,7 +37,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
   /**
    * All-args constructor.
    */
-  public CombinedPWData(java.lang.String id, java.lang.String col1, java.lang.String utility_name, java.lang.String state, java.lang.String service_type, java.lang.String ownership, java.lang.String comm_rate, java.lang.String ind_rate, java.lang.String res_rate) {
+  public CombinedPWData(java.lang.String id, java.lang.String col1, java.lang.String utility_name, java.lang.String state, java.lang.String service_type, java.lang.String ownership, java.lang.String comm_rate, java.lang.String ind_rate, java.lang.String res_rate, java.util.Map<java.lang.String,java.lang.String> others) {
     this.id = id;
     this.col1 = col1;
     this.utility_name = utility_name;
@@ -46,6 +47,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     this.comm_rate = comm_rate;
     this.ind_rate = ind_rate;
     this.res_rate = res_rate;
+    this.others = others;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -61,6 +63,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     case 6: return comm_rate;
     case 7: return ind_rate;
     case 8: return res_rate;
+    case 9: return others;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -77,6 +80,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     case 6: comm_rate = (java.lang.String)value$; break;
     case 7: ind_rate = (java.lang.String)value$; break;
     case 8: res_rate = (java.lang.String)value$; break;
+    case 9: others = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -216,19 +220,34 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     this.res_rate = value;
   }
 
+  /**
+   * Gets the value of the 'others' field.
+   */
+  public java.util.Map<java.lang.String,java.lang.String> getOthers() {
+    return others;
+  }
+
+  /**
+   * Sets the value of the 'others' field.
+   * @param value the value to set.
+   */
+  public void setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
+    this.others = value;
+  }
+
   /** Creates a new CombinedPWData RecordBuilder */
-  public static com.cloudera.services.hbase.CombinedPWData.Builder newBuilder() {
-    return new com.cloudera.services.hbase.CombinedPWData.Builder();
+  public static com.cloudera.services.avro.CombinedPWData.Builder newBuilder() {
+    return new com.cloudera.services.avro.CombinedPWData.Builder();
   }
   
   /** Creates a new CombinedPWData RecordBuilder by copying an existing Builder */
-  public static com.cloudera.services.hbase.CombinedPWData.Builder newBuilder(com.cloudera.services.hbase.CombinedPWData.Builder other) {
-    return new com.cloudera.services.hbase.CombinedPWData.Builder(other);
+  public static com.cloudera.services.avro.CombinedPWData.Builder newBuilder(com.cloudera.services.avro.CombinedPWData.Builder other) {
+    return new com.cloudera.services.avro.CombinedPWData.Builder(other);
   }
   
   /** Creates a new CombinedPWData RecordBuilder by copying an existing CombinedPWData instance */
-  public static com.cloudera.services.hbase.CombinedPWData.Builder newBuilder(com.cloudera.services.hbase.CombinedPWData other) {
-    return new com.cloudera.services.hbase.CombinedPWData.Builder(other);
+  public static com.cloudera.services.avro.CombinedPWData.Builder newBuilder(com.cloudera.services.avro.CombinedPWData other) {
+    return new com.cloudera.services.avro.CombinedPWData.Builder(other);
   }
   
   /**
@@ -246,14 +265,15 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     private java.lang.String comm_rate;
     private java.lang.String ind_rate;
     private java.lang.String res_rate;
+    private java.util.Map<java.lang.String,java.lang.String> others;
 
     /** Creates a new Builder */
     private Builder() {
-      super(com.cloudera.services.hbase.CombinedPWData.SCHEMA$);
+      super(com.cloudera.services.avro.CombinedPWData.SCHEMA$);
     }
     
     /** Creates a Builder by copying an existing Builder */
-    private Builder(com.cloudera.services.hbase.CombinedPWData.Builder other) {
+    private Builder(com.cloudera.services.avro.CombinedPWData.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -291,11 +311,15 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
         this.res_rate = data().deepCopy(fields()[8].schema(), other.res_rate);
         fieldSetFlags()[8] = true;
       }
+      if (isValidValue(fields()[9], other.others)) {
+        this.others = data().deepCopy(fields()[9].schema(), other.others);
+        fieldSetFlags()[9] = true;
+      }
     }
     
     /** Creates a Builder by copying an existing CombinedPWData instance */
-    private Builder(com.cloudera.services.hbase.CombinedPWData other) {
-            super(com.cloudera.services.hbase.CombinedPWData.SCHEMA$);
+    private Builder(com.cloudera.services.avro.CombinedPWData other) {
+            super(com.cloudera.services.avro.CombinedPWData.SCHEMA$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
@@ -332,6 +356,10 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
         this.res_rate = data().deepCopy(fields()[8].schema(), other.res_rate);
         fieldSetFlags()[8] = true;
       }
+      if (isValidValue(fields()[9], other.others)) {
+        this.others = data().deepCopy(fields()[9].schema(), other.others);
+        fieldSetFlags()[9] = true;
+      }
     }
 
     /** Gets the value of the 'id' field */
@@ -340,7 +368,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Sets the value of the 'id' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder setId(java.lang.String value) {
+    public com.cloudera.services.avro.CombinedPWData.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -353,7 +381,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Clears the value of the 'id' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder clearId() {
+    public com.cloudera.services.avro.CombinedPWData.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -365,7 +393,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Sets the value of the 'col1' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder setCol1(java.lang.String value) {
+    public com.cloudera.services.avro.CombinedPWData.Builder setCol1(java.lang.String value) {
       validate(fields()[1], value);
       this.col1 = value;
       fieldSetFlags()[1] = true;
@@ -378,7 +406,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Clears the value of the 'col1' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder clearCol1() {
+    public com.cloudera.services.avro.CombinedPWData.Builder clearCol1() {
       col1 = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -390,7 +418,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Sets the value of the 'utility_name' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder setUtilityName(java.lang.String value) {
+    public com.cloudera.services.avro.CombinedPWData.Builder setUtilityName(java.lang.String value) {
       validate(fields()[2], value);
       this.utility_name = value;
       fieldSetFlags()[2] = true;
@@ -403,7 +431,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Clears the value of the 'utility_name' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder clearUtilityName() {
+    public com.cloudera.services.avro.CombinedPWData.Builder clearUtilityName() {
       utility_name = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -415,7 +443,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Sets the value of the 'state' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder setState(java.lang.String value) {
+    public com.cloudera.services.avro.CombinedPWData.Builder setState(java.lang.String value) {
       validate(fields()[3], value);
       this.state = value;
       fieldSetFlags()[3] = true;
@@ -428,7 +456,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Clears the value of the 'state' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder clearState() {
+    public com.cloudera.services.avro.CombinedPWData.Builder clearState() {
       state = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -440,7 +468,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Sets the value of the 'service_type' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder setServiceType(java.lang.String value) {
+    public com.cloudera.services.avro.CombinedPWData.Builder setServiceType(java.lang.String value) {
       validate(fields()[4], value);
       this.service_type = value;
       fieldSetFlags()[4] = true;
@@ -453,7 +481,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Clears the value of the 'service_type' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder clearServiceType() {
+    public com.cloudera.services.avro.CombinedPWData.Builder clearServiceType() {
       service_type = null;
       fieldSetFlags()[4] = false;
       return this;
@@ -465,7 +493,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Sets the value of the 'ownership' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder setOwnership(java.lang.String value) {
+    public com.cloudera.services.avro.CombinedPWData.Builder setOwnership(java.lang.String value) {
       validate(fields()[5], value);
       this.ownership = value;
       fieldSetFlags()[5] = true;
@@ -478,7 +506,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Clears the value of the 'ownership' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder clearOwnership() {
+    public com.cloudera.services.avro.CombinedPWData.Builder clearOwnership() {
       ownership = null;
       fieldSetFlags()[5] = false;
       return this;
@@ -490,7 +518,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Sets the value of the 'comm_rate' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder setCommRate(java.lang.String value) {
+    public com.cloudera.services.avro.CombinedPWData.Builder setCommRate(java.lang.String value) {
       validate(fields()[6], value);
       this.comm_rate = value;
       fieldSetFlags()[6] = true;
@@ -503,7 +531,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Clears the value of the 'comm_rate' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder clearCommRate() {
+    public com.cloudera.services.avro.CombinedPWData.Builder clearCommRate() {
       comm_rate = null;
       fieldSetFlags()[6] = false;
       return this;
@@ -515,7 +543,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Sets the value of the 'ind_rate' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder setIndRate(java.lang.String value) {
+    public com.cloudera.services.avro.CombinedPWData.Builder setIndRate(java.lang.String value) {
       validate(fields()[7], value);
       this.ind_rate = value;
       fieldSetFlags()[7] = true;
@@ -528,7 +556,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Clears the value of the 'ind_rate' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder clearIndRate() {
+    public com.cloudera.services.avro.CombinedPWData.Builder clearIndRate() {
       ind_rate = null;
       fieldSetFlags()[7] = false;
       return this;
@@ -540,7 +568,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Sets the value of the 'res_rate' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder setResRate(java.lang.String value) {
+    public com.cloudera.services.avro.CombinedPWData.Builder setResRate(java.lang.String value) {
       validate(fields()[8], value);
       this.res_rate = value;
       fieldSetFlags()[8] = true;
@@ -553,9 +581,34 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
     }
     
     /** Clears the value of the 'res_rate' field */
-    public com.cloudera.services.hbase.CombinedPWData.Builder clearResRate() {
+    public com.cloudera.services.avro.CombinedPWData.Builder clearResRate() {
       res_rate = null;
       fieldSetFlags()[8] = false;
+      return this;
+    }
+
+    /** Gets the value of the 'others' field */
+    public java.util.Map<java.lang.String,java.lang.String> getOthers() {
+      return others;
+    }
+    
+    /** Sets the value of the 'others' field */
+    public com.cloudera.services.avro.CombinedPWData.Builder setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
+      validate(fields()[9], value);
+      this.others = value;
+      fieldSetFlags()[9] = true;
+      return this; 
+    }
+    
+    /** Checks whether the 'others' field has been set */
+    public boolean hasOthers() {
+      return fieldSetFlags()[9];
+    }
+    
+    /** Clears the value of the 'others' field */
+    public com.cloudera.services.avro.CombinedPWData.Builder clearOthers() {
+      others = null;
+      fieldSetFlags()[9] = false;
       return this;
     }
 
@@ -572,6 +625,7 @@ public class CombinedPWData extends org.apache.avro.specific.SpecificRecordBase 
         record.comm_rate = fieldSetFlags()[6] ? this.comm_rate : (java.lang.String) defaultValue(fields()[6]);
         record.ind_rate = fieldSetFlags()[7] ? this.ind_rate : (java.lang.String) defaultValue(fields()[7]);
         record.res_rate = fieldSetFlags()[8] ? this.res_rate : (java.lang.String) defaultValue(fields()[8]);
+        record.others = fieldSetFlags()[9] ? this.others : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[9]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

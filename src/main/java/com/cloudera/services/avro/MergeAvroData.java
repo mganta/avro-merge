@@ -20,8 +20,6 @@ import org.apache.hadoop.util.GenericOptionsParser;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-import com.cloudera.services.hbase.CombinedPWData;
-
 public class MergeAvroData extends Configured implements Tool {
 	private Configuration config = new Configuration();
 
@@ -31,15 +29,15 @@ public class MergeAvroData extends Configured implements Tool {
 
 	public int run(String[] args) throws IOException, ClassNotFoundException,
 			InterruptedException {
-		if (args.length != 3) {
+		if (args.length != 2) {
 			System.err
-					.printf("Usage: %s [generic options] <input_paths_file> <mappings_file_name> <output_path> \n",
+					.printf("Usage: %s [generic options] <input_paths_file> <output_path> \n",
 							getClass().getSimpleName());
 			ToolRunner.printGenericCommandUsage(System.err);
 			return -1;
 		}
 
-		config.set("MappingsFilename", args[1]);
+		config.set("MappingsFilename", "FieldMappings.json");
 
 		Job job = Job.getInstance(config);
 
@@ -57,8 +55,8 @@ public class MergeAvroData extends Configured implements Tool {
 
 		// clear out output folder if it exists
 		FileSystem fs = FileSystem.get(config);
-		if (fs.exists(new Path(args[2])))
-			fs.delete(new Path(args[2]), true);
+		if (fs.exists(new Path(args[1])))
+			fs.delete(new Path(args[1]), true);
 
 		//read all the input paths to various avro data files
 		List<String> lines = Files.readAllLines(Paths.get(args[0]),
@@ -77,7 +75,7 @@ public class MergeAvroData extends Configured implements Tool {
 		AvroKeyInputFormat.addInputPaths(job, sb.toString());
 
 		//set output path and other params
-		AvroKeyOutputFormat.setOutputPath(job, new Path(args[2]));
+		AvroKeyOutputFormat.setOutputPath(job, new Path(args[1]));
 		AvroKeyOutputFormat.setOutputCompressorClass(job, SnappyCodec.class);
 		AvroKeyOutputFormat.setCompressOutput(job, true);
 		AvroJob.setOutputKeySchema(job, CombinedPWData.SCHEMA$);
