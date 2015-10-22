@@ -3,13 +3,13 @@ package com.cloudera.services.avro;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.avro.Schema;
 import org.apache.avro.Schema.Field;
+import org.apache.avro.Schema.Type;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.mapred.AvroKey;
 import org.apache.avro.mapred.AvroWrapper;
@@ -63,15 +63,18 @@ public class GenericAvroMapper
 			if (fieldValue != null) {
 				if (fieldMappings.containsKey(fieldName)) {
 					if (fieldMappings.get(fieldName).getSourceTable().equalsIgnoreCase(schemaName)) {
-						combinedRecord.put(fieldMappings.get(fieldName).getTargetColumn(), fieldValue);
+						combinedRecord.put(fieldMappings.get(fieldName).getTargetColumn(), DataTypeConverter.convert(fieldValue, combinedRecord.getSchema().getField(fieldMappings.get(fieldName).getTargetColumn()).schema()));
 					} else {
-						combinedRecord.put(fieldName, fieldValue);
+						if(combinedRecord.getSchema().getField(fieldName) != null)	
+							   combinedRecord.put(fieldName, DataTypeConverter.convert(fieldValue, combinedRecord.getSchema().getField(fieldName).schema()));
+							else
+					    othersMap.put(fieldName, DataTypeConverter.convert(fieldValue, Schema.create(Type.STRING)));
 					}
 				} else {
-					if(combinedRecord.SCHEMA$.getField(fieldName) != null)	
-					   combinedRecord.put(fieldName, fieldValue);
+					if(combinedRecord.getSchema().getField(fieldName) != null)	
+					   combinedRecord.put(fieldName, DataTypeConverter.convert(fieldValue, combinedRecord.getSchema().getField(fieldName).schema()));
 					else
-						othersMap.put(fieldName, fieldValue);
+					    othersMap.put(fieldName, DataTypeConverter.convert(fieldValue, Schema.create(Type.STRING)));
 				}
 			}
 		}
